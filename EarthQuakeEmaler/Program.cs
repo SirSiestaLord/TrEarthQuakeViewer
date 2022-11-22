@@ -35,7 +35,7 @@ namespace TrEarthQuakeViewer
 
             while (true)
             {
-                Console.WriteLine("\n1-Tüm Depremleri Listele\n\n2-Deprem Ara");
+                Console.WriteLine("\n1-List Newest 500 Earthquake in Turkey\n\n2-Search City");
                 int menu = int.Parse(Console.ReadLine());
                 switch (menu)
                 {
@@ -63,7 +63,7 @@ namespace TrEarthQuakeViewer
                         {
 
                             int nullcounter = 0, sayar = 0;string aranan = "";
-                            Console.WriteLine("Aranan Değeri Girin :");
+                            Console.WriteLine("City Name:");
                             aranan=Console.ReadLine();
                             StreamReader streamReader = new StreamReader(filepath);
                             for (int x = 0; x < result.Length; x++)
@@ -76,9 +76,9 @@ namespace TrEarthQuakeViewer
 
                                 }
 
-                                if (nullcounter == 5) { break; }
+                               else if (nullcounter == 5) { break; }
                                 else if (615 > sayar && sayar > 100) {
-                                    if (lines[x].Contains(aranan)) { Console.WriteLine(lines[x]); }
+                                    if (lines[x].Contains(aranan.ToUpper())) { Console.WriteLine(lines[x]); }
                                 }
                             }
 
